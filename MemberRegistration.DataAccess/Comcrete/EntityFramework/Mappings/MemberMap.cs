@@ -16,7 +16,7 @@ namespace MemberRegistration.DataAccess.Comcrete.EntityFramework.Mappings
             HasKey(x => x.Id);
 
             Property(x => x.DateOfBirth).HasColumnName("DateOfBirth");
-            Property(x => x.FirstName).HasColumnName("ProductName");
+            Property(x => x.FirstName).HasColumnName("FirstName");
             Property(x => x.LastName).HasColumnName("LastName");
             Property(x => x.Email).HasColumnName("Email");
         }
