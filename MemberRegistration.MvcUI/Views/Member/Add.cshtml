@@ -1,0 +1,81 @@
+﻿@using MemberRegistration.MvcUI.Models
+@{
+    Layout = null;
+}
+
+ @model MemberAddViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <title>Member Regıstratıon</title>
+</head>
+<body class="bg-light" cz-shortcut-listen="true">
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Kayıt Formu</h2>
+            <p class="lead">Lütfen Bilgilerinizi Giriniz.</p>
+            <p class="lead">@Html.ValidationMessage("MemberException")</p>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12 order-md-1">
+                <h4 class="mb-3">Bilgileriniz</h4>
+                @using (Html.BeginForm())
+                {
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Adınız</label>
+                            @Html.TextBoxFor(m=> m.Member.FirstName,new  { @class="form-control"})
+                            @Html.ValidationMessageFor(m=> m.Member.FirstName,"",new {@class="text-danger"})
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Soyadınız</label>
+                            @Html.TextBoxFor(m => m.Member.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Member.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tcNo">TC Kimlik Numaranız</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"></span>
+                            </div>
+                            @Html.TextBoxFor(m => m.Member.TcNo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Member.TcNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        @Html.TextBoxFor(m => m.Member.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Member.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dateOfBirth">Doğum Tarihiniz</label>
+                        @Html.TextBoxFor(m => m.Member.DateOfBirth, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Member.DateOfBirth, "", new { @class = "text-danger" })
+                    </div>
+
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Kayıt ol</button>
+                }
+
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
